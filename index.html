@@ -6,13 +6,23 @@
     <!-- We've provided some styles for you, aren't we nice? -->
     <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
     <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <link rel ="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <script src="/js/angular.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body ng-app="flashCards" ng-cloak>
-  <scoreBoard></scoreBoard>
-  <addNewFlashCard></addNewFlashCard>
-  <displayCards></displayCards>
+
+  <div ui-view></div>
+  <ul class = "nav nav-tabs">
+    <li class><a ui-sref="scoreBoard">Score Board</a></li>
+    <li><a ui-sref="addNewFlashCard">Add New FlashCard</a></li>
+    <li><a ui-sref="allFlashCards">All Flash Cards</a></li>
+  </ul>
+  <!-- <scoreBoard></scoreBoard> -->
+  <!-- <addNewFlashCard></addNewFlashCard>
+  <displayCards></displayCards> -->
     <!-- <div ng-controller="StatsController" id="statistics">
         <div id="scoreboard">
             <h3>Correct: <span>{{ scores.correct }}</span></h3>
