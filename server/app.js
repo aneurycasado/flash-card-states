@@ -68,21 +68,25 @@ app.post('/cards', function (req, res, next) {
     // });
 
 });
+app.get('/card/:id', function(req,res,next){
+  var id = req.params.id;
+  console.log("Id",id);
+  var card = null;
+  FlashCardModel.findById(id).exec().then(function(card){
+    console.log(card);
+    res.json(card);
+  });
+});
 app.put('/cards/:id', function(req,res,next){
   var card = req.body;
   var id = req.params.id;
-  console.log("Id",id);
-  console.log("Card",card);
   FlashCardModel.findByIdAndUpdate(id,(card)).exec().then(function(cool){
     res.end();
   });
 });
-
 app.delete('/cards/:id', function(req,res,next){
   var id = req.params.id;
-  console.log("Id",id);
   FlashCardModel.findByIdAndRemove(id).exec().then(function(cool){
-    console.log("Delete success");
     res.end();
   });
 });
