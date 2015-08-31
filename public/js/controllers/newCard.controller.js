@@ -1,4 +1,4 @@
-app.controller('NewCardController', function($scope, FlashCardsFactory) {
+app.controller('NewCardController', function($scope,FlashCardsFactory) {
   var flag = false;
   $scope.newCard = {
     question: null,
@@ -9,6 +9,7 @@ app.controller('NewCardController', function($scope, FlashCardsFactory) {
         { text: null, correct: false }
     ]
   };
+
   $scope.master = angular.copy($scope.newCard);
   $scope.categories = FlashCardsFactory.categories;
   $scope.reset = function(){

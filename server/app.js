@@ -54,7 +54,7 @@ app.post('/cards', function (req, res, next) {
     var card = req.body;
     FlashCardModel.create(req.body).then(function(result) {
       res.json(result);
-    }).then(null,next)
+    }).then(null,next);
     // var modelParams = {};
     //
     // if (req.query.category) {
@@ -67,6 +67,24 @@ app.post('/cards', function (req, res, next) {
     //     }, 500 + Math.random() * 1000);
     // });
 
+});
+app.put('/cards/:id', function(req,res,next){
+  var card = req.body;
+  var id = req.params.id;
+  console.log("Id",id);
+  console.log("Card",card);
+  FlashCardModel.findByIdAndUpdate(id,(card)).exec().then(function(cool){
+    res.end();
+  });
+});
+
+app.delete('/cards/:id', function(req,res,next){
+  var id = req.params.id;
+  console.log("Id",id);
+  FlashCardModel.findByIdAndRemove(id).exec().then(function(cool){
+    console.log("Delete success");
+    res.end();
+  });
 });
 
 app.use('/',function(error, req, res, next) {

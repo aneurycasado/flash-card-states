@@ -1,5 +1,4 @@
-app.controller('MainController', function ($scope, FlashCardsFactory, $log, ScoreFactory) {
-
+app.controller('MainController', function ($scope,$state, FlashCardsFactory, $log, ScoreFactory) {
   $scope.categories = FlashCardsFactory.categories;
   $scope.selectedCategory = null;
   $scope.$on("newCardAdded", function(event,card){
@@ -19,6 +18,5 @@ app.controller('MainController', function ($scope, FlashCardsFactory, $log, Scor
       $scope.loading = false;
     });
   };
-
   $scope.getCategoryCards();
 });

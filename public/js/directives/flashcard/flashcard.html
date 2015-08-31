@@ -1,5 +1,4 @@
 <div class="flash-card">
-    <button type="button" class = "btn btn-primary">Edit</button>
     <h1>{{ card.question | uppercase }}</h1>
     <h3>{{ card.category }}</h3>
     <ul class="flash-card-answers">
@@ -15,4 +14,6 @@
         <span ng-show="card.answeredCorrectly">Yeah, you got it right!</span>
         <span ng-show="!card.answeredCorrectly">Nope, you got it wrong.</span>
     </h2>
+    <ui-view></ui-view>
+    <button type="button" class = "btn btn-primary" ui-sref = "manageFlashCard({id:card._id})">Edit</button>
 </div>
